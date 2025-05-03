@@ -1,8 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + Appwrite Authentication
+
+A modern web application built with Next.js and Appwrite backend services for user authentication.
+
+## Project Overview
+
+This project demonstrates integration between Next.js and Appwrite, providing a complete authentication system with:
+
+- User registration
+- Login/logout functionality
+- User profile management
+- Secure authentication using Appwrite
+
+## Prerequisites
+
+- Node.js 18.x or later
+- npm, yarn, pnpm, or bun package manager
+- An Appwrite account and project setup
+
+## Environment Setup
+
+1. Clone this repository
+2. Copy `example.env` to `.env.local` and fill in your Appwrite credentials:
+
+```
+NEXT_PUBLIC_APPWRITE_URL=your-appwrite-endpoint
+NEXT_PUBLIC_APPWRITE_PROJECT_ID=your-project-id
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +53,32 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/appwrite/` - Appwrite configuration and service definitions
+- `src/conf/` - Application configuration
+- `src/app/` - Next.js app router components and pages
+
+## Key Features
+
+- Modern authentication flow with Appwrite
+- Type-safe implementation with TypeScript
+- Responsive UI with Tailwind CSS
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Appwrite Documentation](https://appwrite.io/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This application can be deployed to Vercel or any other Next.js-compatible hosting platform.
 
-## Deploy on Vercel
+For Appwrite, consider using Appwrite Cloud for simplified management or self-host using Docker.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
