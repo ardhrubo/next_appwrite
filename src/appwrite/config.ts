@@ -1,5 +1,7 @@
 import conf from '@/conf/config';
 import {Client,Account,ID} from 'appwrite'
+import App from 'next/app';
+
 
 type CreateUserAccound = {
     email: string,
@@ -44,7 +46,7 @@ export class AppwriteService {
 
     async login({email,password}:LoginUserAccount){
         try {
-            
+            return await account.createEmailPasswordSession(email,password)
         } catch (error) {
             throw error
             
@@ -52,22 +54,53 @@ export class AppwriteService {
     }
 
     
-    async isLoggedIn(){
-        
+    async isLoggedIn():Promise<boolean>{
+
+        try {
+            const data = await this.getCurrentUser()
+            return Boolean(data)
+        } catch (error) {
+            
+        }
+
+        return false
     }
     
+    async getCurrentUser(){
+        try {
+            
+            const user = await account.get()
+  
+        } catch (error) {
+
+            console.log("gettingCurrentUserError:",error)
+            
+        }
+    }
+
     async updateUser({email,password}:UpdatedUserAccount){
+        try {
+            
+        } catch (error) {
+            
+        }
+
 
     }
 
     async logout(){
-
+            try {
+                return await account.deleteSession("current")
+                
+            } catch (error) {
+                console.log("logout errro",error)
+            }
     }
 
 }
 
 
+const appwriteService = new AppwriteService()
 
-
-
+export default appwriteService
 
