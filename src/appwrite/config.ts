@@ -1,6 +1,5 @@
 import conf from '@/conf/config';
 import {Client,Account,ID} from 'appwrite'
-import App from 'next/app';
 
 
 type CreateUserAccound = {
@@ -35,7 +34,9 @@ export class AppwriteService {
         try {
            const userAccount =  await account.create(ID.unique(),email,password,name)
            if(userAccount){
-            
+            return this.login({email, password})
+           }else{
+            return userAccount
            }
         } catch (error) {
             throw error
@@ -70,6 +71,7 @@ export class AppwriteService {
         try {
             
             const user = await account.get()
+            return account.get()
   
         } catch (error) {
 
